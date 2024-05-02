@@ -1,15 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  Alert,
-  ScrollView,
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  Modal,
-} from "react-native";
+import React, { useState } from "react";
+import { Alert, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import * as SQLite from "expo-sqlite";
 import styles from "./Formula1.css";
 import CustomCard from "./Components/CustomCard";
@@ -25,15 +15,13 @@ const Formula2 = () => {
   const [PxW, setPxW] = React.useState();
   const [modalVisible, setModalVisible] = useState(false);
   const saveResult = async () => {
-    // Convert the input values to numbers
     const HpValue = parseFloat(Hp);
     const RPMValue = parseFloat(RPM);
     const TValue = parseFloat(T);
     const PxWValue = parseFloat(PxW);
 
-    // Check if any input is not a number
     if (isNaN(HpValue) || isNaN(RPMValue) || isNaN(TValue) || isNaN(PxWValue)) {
-      alert("Invalid input. Please enter valid numeric values.");
+      alert("Invalid input. Please enter valid numeric values to all inputs.");
       return;
     }
     db.transaction(
@@ -42,7 +30,6 @@ const Formula2 = () => {
           `INSERT INTO formula2 (Hp, RPM, T, PxW) VALUES (?, ?, ?, ?)`,
           [HpValue, RPMValue, TValue, PxWValue],
           (_, result) => {
-            console.log("Values inserted successfully:", result);
             setHp("");
             setRPM("");
             setT("");

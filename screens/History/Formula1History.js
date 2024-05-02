@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Text, TouchableOpacity, View, Modal, ScrollView } from "react-native";
 import * as SQLite from "expo-sqlite";
 import styles from "./History.css";
@@ -45,7 +45,7 @@ const Formula1History = () => {
               for (let i = 0; i < rows.length; i++) {
                 testData.push(rows.item(i));
               }
-              resolve(testData); // Resolve with fetched data
+              resolve(testData);
             },
             (_, error) => {
               console.error("Error fetching data:", error);

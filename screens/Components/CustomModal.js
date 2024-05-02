@@ -1,12 +1,11 @@
 import React from "react";
-import { TouchableOpacity, Text, View, Modal } from "react-native";
+import { View, Modal } from "react-native";
 import styles from "./CustomModal.css";
 
 const CustomModal = ({
   children,
   modalVisible,
   setModalVisible,
-  saveResult = null,
 }) => {
   return (
     <Modal

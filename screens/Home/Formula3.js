@@ -1,14 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  Alert,
-  Button,
-  TouchableOpacity,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  ScrollView,
-} from "react-native";
+import React, { useState } from "react";
+import { Alert, TouchableOpacity, Text, View, ScrollView } from "react-native";
 import * as SQLite from "expo-sqlite";
 import styles from "./Formula1.css";
 import CustomCard2 from "./Components/CustomCard2";
@@ -24,20 +15,18 @@ const Formula3 = () => {
   const [Saved, setSaved] = React.useState();
   const [modalVisible, setModalVisible] = useState(false);
   const saveResult = async () => {
-    // Convert the input values to numbers
     const WValue = parseFloat(W);
     const hrsValue = parseFloat(hrs);
     const DaysValue = parseInt(Days);
     const SavedValue = parseFloat(Saved);
 
-    // Check if any input is not a number
     if (
       isNaN(WValue) ||
       isNaN(hrsValue) ||
       isNaN(DaysValue) ||
       isNaN(SavedValue)
     ) {
-      alert("Invalid input. Please enter valid numeric values.");
+      alert("Invalid input. Please enter valid numeric values to all inputs.");
       return;
     }
     db.transaction(
@@ -46,7 +35,6 @@ const Formula3 = () => {
           `INSERT INTO formula3 (W, hrs, Days, Saved) VALUES (?, ?, ?, ?)`,
           [WValue, hrsValue, DaysValue, SavedValue],
           (_, result) => {
-            console.log("Values inserted successfully into formula3:", result);
             setW("");
             sethrs("");
             setDays("");

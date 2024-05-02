@@ -5,7 +5,6 @@ import {
   Text,
   View,
   ScrollView,
-  Modal,
 } from "react-native";
 import styles from "./Formula1.css";
 import Input from "./Components/Input";
@@ -25,7 +24,7 @@ const Formula1 = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const saveResult = async () => {
-    
+
     const maHValue = parseFloat(maH);
     const VValue = parseFloat(V);
     const WhValue = parseFloat(Wh);
@@ -39,7 +38,7 @@ const Formula1 = () => {
       isNaN(WValue) ||
       isNaN(hrValue)
     ) {
-      alert("Invalid input. Please enter valid numeric values.");
+      alert("Invalid input. Please enter valid numeric values to all inputs.");
       return;
     }
     db.transaction(
@@ -48,7 +47,6 @@ const Formula1 = () => {
           `INSERT INTO formula1 (maH, V, Wh, W, hr) VALUES (?, ?, ?, ?, ?)`,
           [maHValue, VValue, WhValue, WValue, hrValue],
           (_, result) => {
-            console.log("Values inserted successfully:", result);
             setmaH("");
             setV("");
             setWh("");

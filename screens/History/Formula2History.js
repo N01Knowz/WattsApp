@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Text, Modal, TouchableOpacity, View, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View, ScrollView } from "react-native";
 import styles from "./History.css";
 import ShowDataCard from "./Components/ShowDataCard";
 import CustomModal from "../Components/CustomModal";
@@ -45,7 +45,7 @@ const Formula2History = () => {
               for (let i = 0; i < rows.length; i++) {
                 testData.push(rows.item(i));
               }
-              resolve(testData); // Resolve with fetched data
+              resolve(testData);
             },
             (_, error) => {
               console.error("Error fetching data:", error);
@@ -67,7 +67,6 @@ const Formula2History = () => {
         `DELETE FROM formula2 WHERE id = ?`,
         [id],
         (_, result) => {
-          console.log("Value deleted successfully:");
           setModalVisible(false);
           getData();
         },

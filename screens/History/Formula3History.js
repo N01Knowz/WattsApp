@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Text, Modal, TouchableOpacity, View, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View, ScrollView } from "react-native";
 import styles from "./History.css";
 import ShowDataCard from "./Components/ShowDataCard";
 import CustomModal from "../Components/CustomModal";
@@ -18,10 +18,6 @@ const Formula3History = () => {
       getData();
     }, [])
   );
-
-  useEffect(() => {
-    console.log("Fetched data:", datas);
-  }, [datas]);
 
   const handleCardPress = (data) => {
     setModalVisible(true);
@@ -49,7 +45,7 @@ const Formula3History = () => {
               for (let i = 0; i < rows.length; i++) {
                 testData.push(rows.item(i));
               }
-              resolve(testData); // Resolve with fetched data
+              resolve(testData);
             },
             (_, error) => {
               console.error("Error fetching data:", error);
@@ -71,7 +67,6 @@ const Formula3History = () => {
         `DELETE FROM formula3 WHERE id = ?`,
         [id],
         (_, result) => {
-          console.log("Value deleted successfully:");
           setModalVisible(false);
           getData();
         },

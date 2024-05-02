@@ -7,9 +7,6 @@ const Tab = createMaterialTopTabNavigator();
 
 const Home = () => {
   return (
-    // <View>
-    //   <Text>Hello</Text>
-    // </View>
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "black",

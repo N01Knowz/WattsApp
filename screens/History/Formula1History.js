@@ -95,9 +95,9 @@ const Formula1History = () => {
         setModalVisible={setModalVisible}
       >
         <Text style={styles.modalHeaderText}>History</Text>
-        <Text style={styles.modalContentText}>Voltage {showData.V}</Text>
-        <Text style={styles.modalContentText}>Watt {showData.W}</Text>
-        <Text style={styles.modalContentText}>Watt-Hour {showData.Wh}</Text>
+        <Text style={styles.modalContentText}>Voltage: {showData.V}</Text>
+        <Text style={styles.modalContentText}>Watt: {showData.W}</Text>
+        <Text style={styles.modalContentText}>Watt-Hour: {showData.Wh}</Text>
         <Text style={styles.modalContentText}>Hour: {showData.hr}</Text>
         <Text style={styles.modalContentText}>
           Milliampere-Hour: {showData.maH}

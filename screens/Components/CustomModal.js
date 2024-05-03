@@ -1,12 +1,8 @@
 import React from "react";
 import { View, Modal } from "react-native";
-import styles from "./CustomModal.css";
+import styles from "./css/CustomModal.css";
 
-const CustomModal = ({
-  children,
-  modalVisible,
-  setModalVisible,
-}) => {
+const CustomModal = ({ children, modalVisible, setModalVisible }) => {
   return (
     <Modal
       animationType="fade"

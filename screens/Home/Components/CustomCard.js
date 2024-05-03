@@ -11,7 +11,7 @@ const CustomCard = ({ title, t1, ftext }) => {
       </View>
       <View style={styles.formulaContainer}>
         <Text style={styles.text}>{t1}</Text>
-        <Text style={styles.fractionText}>{ftext}</Text>
+        {ftext}
       </View>
     </Card>
   );

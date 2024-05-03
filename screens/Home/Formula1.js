@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import {
-  Alert,
-  TouchableOpacity,
-  Text,
-  View,
-  ScrollView,
-} from "react-native";
+import { Alert, TouchableOpacity, Text, View, ScrollView } from "react-native";
 import styles from "./Formula1.css";
 import Input from "./Components/Input";
 import CustomCard from "./Components/CustomCard";
 import CustomModal from "../Components/CustomModal";
 import * as SQLite from "expo-sqlite";
+import DividedText from "../Components/DividedText";
 
 const db = SQLite.openDatabase("WattsApp");
 
@@ -24,7 +19,6 @@ const Formula1 = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const saveResult = async () => {
-
     const maHValue = parseFloat(maH);
     const VValue = parseFloat(V);
     const WhValue = parseFloat(Wh);
@@ -128,7 +122,11 @@ const Formula1 = () => {
   return (
     <ScrollView style={styles.main}>
       <View style={styles.cardContainer}>
-        <CustomCard title={"1st Formula"} t1={"Wh ="} ftext={"ᵐᵃʰ ˣ ᵛ⁄₁₀₀₀"} />
+        <CustomCard
+          title={"1st Formula"}
+          t1={"Wh ="}
+          ftext={<DividedText upperText={"maH x V"} lowerText={"1000"} />}
+        />
       </View>
       <View style={styles.inputInputContainer}>
         <Input
@@ -154,7 +152,11 @@ const Formula1 = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.cardContainer}>
-        <CustomCard title={"2nd Formula"} t1={"Wh ="} ftext={"ʷ⁄ₕᵣ"} />
+        <CustomCard
+          title={"2nd Formula"}
+          t1={"Wh ="}
+          ftext={<DividedText upperText={"W"} lowerText={"hr"} />}
+        />
       </View>
       <View style={styles.inputInputContainer}>
         <Input

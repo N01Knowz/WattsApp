@@ -10,10 +10,12 @@ const CustomCard2 = ({ title, t1, ftext, f2text }) => {
         <Text style={styles.headerText}>{title}</Text>
       </View>
       <View style={styles.formulaContainer}>
-        <Text style={styles.text}>{t1}</Text>
-        <Text style={styles.fractionText}>{ftext}</Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{t1}</Text>
+          {ftext}
+          <Text style={styles.fractionText}>{f2text}</Text>
+        </View>
       </View>
-      <Text style={styles.fractionText2}>{f2text}</Text>
     </Card>
   );
 };

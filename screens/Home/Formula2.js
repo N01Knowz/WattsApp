@@ -5,6 +5,7 @@ import styles from "./Formula1.css";
 import CustomCard from "./Components/CustomCard";
 import CustomModal from "../Components/CustomModal";
 import Input from "./Components/Input";
+import DividedText from "../Components/DividedText";
 
 const db = SQLite.openDatabase("WattsApp");
 
@@ -124,7 +125,7 @@ const Formula2 = () => {
         <CustomCard
           title={"1st Formula"}
           t1={"T ="}
-          ftext={"(ʰᵖ ˣ ⁵²⁵²)⁄ᵣₚₘ"}
+          ftext={<DividedText upperText={"Hp x 5252"} lowerText={"RPM"} />}
         />
       </View>
       <View style={styles.inputInputContainer}>
@@ -155,7 +156,7 @@ const Formula2 = () => {
         <CustomCard
           title={"2nd Formula"}
           t1={"T ="}
-          ftext={"(ᵗ ˣ ʳᵖᵐ ˣ ²π)⁄₆₀"}
+          ftext={<DividedText upperText={"T x RPM x 2π"} lowerText={"60"} />}
         />
       </View>
       <View style={styles.inputInputContainer}>

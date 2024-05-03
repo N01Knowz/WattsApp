@@ -5,6 +5,7 @@ import styles from "./Formula1.css";
 import CustomCard2 from "./Components/CustomCard2";
 import CustomModal from "../Components/CustomModal";
 import Input from "./Components/Input";
+import DividedText from "../Components/DividedText";
 
 const db = SQLite.openDatabase("WattsApp");
 
@@ -122,8 +123,8 @@ const Formula3 = () => {
         <CustomCard2
           title={"1st Formula"}
           t1={"₱Saved ="}
-          ftext={"(ʷ⁄₁₀₀₀) ˣ ⁿᵘᵐ ᵒᶠ ʰᵒᵘʳˢ ⁿᵉᵉᵈᵉᵈ"}
-          f2text={"ⁿᵘᵐ ᵈᵃʸˢ ᵘˢᵉᵈ ˣ ₱8.81"}
+          ftext={<DividedText upperText={"W"} lowerText={1000} />}
+          f2text={"x hrs x days x ₱8.81"}
         />
       </View>
 

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     paddingTop: 13,
     flexDirection: "row",
     alignItems: "center", // Align items vertically within the container
+    justifyContent: "center",
     paddingHorizontal: 50,
   },
   text: {
@@ -29,10 +30,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#7E2553",
     borderRadius: 10,
     padding: 10,
-    paddingHorizontal: 118, // Adjust as needed
+    paddingHorizontal: 85, // Adjust as needed
   },
   headerText: {
     fontSize: 17,
+    textAlign: "center",
     fontWeight: "500",
     color: "#FFF", // Optional: to ensure text is visible against the background
   },

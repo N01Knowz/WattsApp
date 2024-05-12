@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Text, TextInput, View } from "react-native";
+import { Button, ScrollView, Text, TextInput, View } from "react-native";
 import InputWithText from "./Components/InputWithText";
 import { Calendar } from "react-native-calendars";
 import styles from "./Calculate.css";
@@ -230,7 +230,7 @@ const Calculate = () => {
   };
 
   return (
-    <View>
+    <ScrollView>
       <Calendar
         onDayPress={(day) => {
           getSelectedDay(day);
@@ -372,7 +372,7 @@ const Calculate = () => {
           </TouchableOpacity>
         </View>
       </CustomModal>
-    </View>
+    </ScrollView>
   );
 };
 

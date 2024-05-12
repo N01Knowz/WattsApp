@@ -136,7 +136,7 @@ const Formula3 = () => {
           setvalue={setW}
         />
         <Input
-          label={"Hourse (Hrs):"}
+          label={"Hours (Hrs):"}
           placeholder={"Hrs"}
           value={hrs}
           setvalue={sethrs}

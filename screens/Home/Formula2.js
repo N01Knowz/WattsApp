@@ -142,8 +142,8 @@ const Formula2 = () => {
           setvalue={setRPM}
         />
         <Input
-          label={"Time (t):"}
-          placeholder={"T"}
+          label={"Torque (Nm):"}
+          placeholder={"Nm"}
           value={T}
           setvalue={setT}
         />
@@ -155,14 +155,14 @@ const Formula2 = () => {
       <View style={styles.cardContainer}>
         <CustomCard
           title={"2nd Formula"}
-          t1={"T ="}
+          t1={"PxW ="}
           ftext={<DividedText upperText={"T x RPM x 2π"} lowerText={"60"} />}
         />
       </View>
       <View style={styles.inputInputContainer}>
         <Input
-          label={"Time (T):"}
-          placeholder={"T"}
+          label={"Torque (Nm):"}
+          placeholder={"Nm"}
           value={T}
           setvalue={setT}
         />

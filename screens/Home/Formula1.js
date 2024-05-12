@@ -4,8 +4,8 @@ import styles from "./Formula1.css";
 import Input from "./Components/Input";
 import CustomCard from "./Components/CustomCard";
 import CustomModal from "../Components/CustomModal";
-import * as SQLite from "expo-sqlite";
 import DividedText from "../Components/DividedText";
+import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("WattsApp");
 

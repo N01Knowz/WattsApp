@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View, Modal, ScrollView } from "react-native";
 import * as SQLite from "expo-sqlite";
-import styles from "./History.css";
-import ShowDataCard from "./Components/ShowDataCard";
 import CustomModal from "../Components/CustomModal";
 import { useFocusEffect } from "@react-navigation/native";
+import styles from "../History/History.css";
+import ShowDataCard from "../History/Components/ShowDataCard";
+import moment from "moment";
 
 const db = SQLite.openDatabase("WattsApp");
 
-const Formula1History = () => {
+const History = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [datas, setDatas] = useState([]);
   const [showData, setShowData] = useState([]);
@@ -27,10 +28,13 @@ const Formula1History = () => {
     setModalVisible(true);
     setShowData(data);
   };
+  const formatOutputDate = (dateString) => {
+    return moment(dateString).format("MMMM DD, YYYY");
+  };
 
   const getData = async () => {
     try {
-      const variable = await fetchTestData("formula1");
+      const variable = await fetchTestData("savings");
       setDatas(variable);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -68,7 +72,7 @@ const Formula1History = () => {
   const deleteData = (id) => {
     db.transaction((tx) => {
       tx.executeSql(
-        `DELETE FROM formula1 WHERE id = ?`,
+        `DELETE FROM savings WHERE id = ?`,
         [id],
         (_, result) => {
           console.log("Value deleted successfully:");
@@ -86,10 +90,10 @@ const Formula1History = () => {
     <ScrollView style={styles.main}>
       {datas.map((data, index) => (
         <ShowDataCard
-          label1={"Watt-Hour:"}
-          value1={data.Wh}
-          label2={"Watt:"}
-          value2={data.W}
+          label1={"Start:"}
+          value1={data.start_at}
+          label2={"End:"}
+          value2={data.end_at}
           onPress={() => handleCardPress(data)} // Pass the function to handle press event
           key={index}
         />
@@ -98,13 +102,24 @@ const Formula1History = () => {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
       >
-        <Text style={styles.modalHeaderText}>History</Text>
-        <Text style={styles.modalContentText}>Voltage: {showData.V}</Text>
-        <Text style={styles.modalContentText}>Watt: {showData.W}</Text>
-        <Text style={styles.modalContentText}>Watt-Hour: {showData.Wh}</Text>
-        <Text style={styles.modalContentText}>Hour: {showData.hr}</Text>
+        <Text style={styles.modalHeaderText}>Store these values?</Text>
         <Text style={styles.modalContentText}>
-          Milliampere-Hour: {showData.maH}
+          Device Capacity: {showData.maH}
+        </Text>
+        <Text style={styles.modalContentText}>RPM: {showData.RPM}</Text>
+        <Text style={styles.modalContentText}>Watts: {showData.Watts}</Text>
+        <Text style={styles.modalContentText}>
+          Watts per minute: {showData.WPM}
+        </Text>
+        <Text style={styles.modalContentText}>
+          Watts generated: {showData.WattsInDate}
+        </Text>
+        <Text style={styles.modalContentText}>₱ Saved: {showData.Saved}</Text>
+        <Text style={styles.modalContentText}>
+          From: {formatOutputDate(showData.start_at)}
+        </Text>
+        <Text style={styles.modalContentText}>
+          To: {formatOutputDate(showData.end_at)}
         </Text>
         <View style={styles.modalButtonContainer}>
           <TouchableOpacity
@@ -125,4 +140,4 @@ const Formula1History = () => {
   );
 };
 
-export default Formula1History;
+export default History;

@@ -94,10 +94,12 @@ const Formula2History = () => {
         setModalVisible={setModalVisible}
       >
         <Text style={styles.modalHeaderText}>History</Text>
-        <Text style={styles.modalContentText}>Voltage" {showData.Hp}</Text>
-        <Text style={styles.modalContentText}>Watt: {showData.PxW}</Text>
-        <Text style={styles.modalContentText}>Watt-Hour: {showData.RPM}</Text>
-        <Text style={styles.modalContentText}>Hour: {showData.T}</Text>
+        <Text style={styles.modalContentText}>Horsepower: {showData.Hp}</Text>
+        <Text style={styles.modalContentText}>
+          Power in Watts: {showData.PxW}
+        </Text>
+        <Text style={styles.modalContentText}>RPM: {showData.RPM}</Text>
+        <Text style={styles.modalContentText}>Torque: {showData.T}</Text>
         <View style={styles.modalButtonContainer}>
           <TouchableOpacity
             style={styles.modalCloseButton}

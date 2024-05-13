@@ -83,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.WattsApp'
+    namespace 'com.anonymous.ChargeCycle'
     defaultConfig {
-        applicationId 'com.anonymous.WattsApp'
+        applicationId 'com.anonymous.ChargeCycle'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

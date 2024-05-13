@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "ChargeCycle",
-    "slug": "WattsApp",
+    "slug": "chargecycle-sb9gys2vmugrnanbrjam",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/ChargeCycle.png",
@@ -11,23 +11,40 @@
       "resizeMode": "contain",
       "backgroundColor": "#fef8e8"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCalendarsUsageDescription": "The app needs to access your calendar.",
+        "NSRemindersUsageDescription": "Allow $(PRODUCT_NAME) to access your reminders",
+        "NSCalendarsFullAccessUsageDescription": "The app needs to access your calendar.",
+        "NSRemindersFullAccessUsageDescription": "Allow $(PRODUCT_NAME) to access your reminders"
+      },
+      "runtimeVersion": {
+        "policy": "appVersion"
+      },
+      "bundleIdentifier": "com.anonymous.ChargeCycle"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/ChargeCycle.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.WattsApp"
+      "package": "com.anonymous.ChargeCycle",
+      "permissions": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR"
+      ],
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/ChargeCycle.png"
     },
     "extra": {
       "eas": {
-        "projectId": "2ef56fb6-3e23-4710-bdb7-214dae9f8169"
+        "projectId": "bed182ee-2e8d-454c-ab57-bf74c9cd7222"
       }
     },
     "plugins": [
@@ -37,6 +54,10 @@
           "calendarPermission": "The app needs to access your calendar."
         }
       ]
-    ]
+    ],
+    "owner": "n01knowz",
+    "updates": {
+      "url": "https://u.expo.dev/bed182ee-2e8d-454c-ab57-bf74c9cd7222"
+    }
   }
 }

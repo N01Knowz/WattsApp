@@ -99,29 +99,18 @@ const Calculate = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(selectedDay);
-  // }, [selectedDay]);
-
-  // useEffect(() => {
-  //   console.log(daysUsed);
-  // }, [daysUsed]);
-
   useEffect(() => {
-    // console.log(wattsToday);
     if (!isNaN(wattsToday)) {
       const moneySaved = ((wattsToday / 1000) * hr * daysUsed * 8.81).toFixed(
         2
       );
-      // console.log(moneySaved);
       setSaved(moneySaved);
     }
   }, [wattsToday, daysUsed]);
 
   const [selectedCalculationLabel, setSelectedCalculationLabel] =
     useState("today");
-  const [selectedCalculation, setSelectedCalculation] = useState("");
-  const Hp = 0.25;
+  const Hp = 0.2;
   const Voltage = 12;
   const hr = 1;
 
@@ -145,17 +134,16 @@ const Calculate = () => {
   }, [maH]);
 
   useEffect(() => {
-    if (!isNaN(RPM)) {
+    if (!isNaN(RPM) && RPM !== 0 && RPM) {
       // Calculate torque using the given formula
-      const Torque = (Hp * 5252) / RPM;
+      const Torque = ((Hp * 5252) / parseFloat(RPM)).toFixed(2);
 
       // Calculate power using torque and RPM
-      const Power = String(((Torque * RPM * 2 * Math.PI) / 60).toFixed(2));
+      const Power = (Torque * RPM * 2 * Math.PI) / 60;
 
       // Set the value of ElecRPM to the calculated power
-      setElecRPM(Power);
-    }
-    if (!RPM) {
+      setElecRPM(Power.toFixed(2).toString());
+    } else {
       setElecRPM("");
     }
   }, [RPM]);
@@ -311,7 +299,7 @@ const Calculate = () => {
           <InputWithText
             value={watts}
             setValue={setWatts}
-            label={"Watts needed to change the digital device:"}
+            label={"Watts needed to charge the digital device:"}
             unit={"Watts"}
             editable={false}
           />
@@ -332,7 +320,7 @@ const Calculate = () => {
             value={saved}
             setValue={setSaved}
             label={`₱ Saved ${selectedCalculationLabel}:`}
-            unit={"pesos"}
+            unit={"Pesos"}
             editable={false}
           />
           <TouchableOpacity

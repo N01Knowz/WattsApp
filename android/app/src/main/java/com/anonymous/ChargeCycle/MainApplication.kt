@@ -1,4 +1,4 @@
-package com.anonymous.WattsApp
+package com.anonymous.ChargeCycle
 
 import android.app.Application
 import android.content.res.Configuration

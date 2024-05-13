@@ -1,4 +1,4 @@
-rootProject.name = 'WattsApp'
+rootProject.name = 'ChargeCycle'
 
 dependencyResolutionManagement {
   versionCatalogs {

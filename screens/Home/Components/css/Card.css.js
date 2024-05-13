@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   //for css containers
   card: {
-    width: "85%",
+    width: "95%",
     height: 170,
     padding: 15,
     marginBottom: 20,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: "#7E2553",
-    borderRadius: 10,
+    borderRadius: 3,
     padding: 10,
     paddingHorizontal: 85, // Adjust as needed
   },

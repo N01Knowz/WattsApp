@@ -215,7 +215,6 @@ const Calculate = () => {
             setElecRPM("");
             setWattsToday("");
             setSaved("");
-            defaultSelectedDay();
             setModalVisible(false);
           },
           (_, error) => {
@@ -231,147 +230,156 @@ const Calculate = () => {
 
   return (
     <ScrollView>
-      <Calendar
-        onDayPress={(day) => {
-          getSelectedDay(day);
-        }}
-        onMonthChange={(month) => {
-          getSelectedDay(month);
-        }}
-        markedDates={{
-          [selectedDay.start]: {
-            selected: true,
-            disableTouchEvent: true,
-            selectedDotColor: "orange",
-          },
-          [selectedDay.end]: {
-            selected: true,
-            disableTouchEvent: true,
-            selectedDotColor: "orange",
-          },
-          ...Object.fromEntries(
-            getDatesBetween(
-              new Date(selectedDay.start),
-              new Date(selectedDay.end)
-            ).map((date) => [
-              date,
-              {
+      <View style={styles.innerContainer}>
+        <View style={styles.calendarContainer}>
+          <Calendar
+            onDayPress={(day) => {
+              getSelectedDay(day);
+            }}
+            onMonthChange={(month) => {
+              getSelectedDay(month);
+            }}
+            markedDates={{
+              [selectedDay.start]: {
                 selected: true,
                 disableTouchEvent: true,
                 selectedDotColor: "orange",
               },
-            ])
-          ),
-        }}
-      />
-      <View style={styles.selectCalculationType}>
-        <TouchableOpacity
-          style={[
-            styles.button,
-            selected == "Day" ? styles.buttonActive : styles.buttonInactive,
-          ]}
-          onPress={() => changeOnSelectedDays("Day")}
-        >
-          <Text style={styles.buttonText}>Day</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.button,
-            selected == "Week" ? styles.buttonActive : styles.buttonInactive,
-          ]}
-          onPress={() => changeOnSelectedDays("Week")}
-        >
-          <Text style={styles.buttonText}>Week</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.button,
-            selected == "Month" ? styles.buttonActive : styles.buttonInactive,
-          ]}
-          onPress={() => changeOnSelectedDays("Month")}
-        >
-          <Text style={styles.buttonText}>Month</Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <InputWithText
-          value={maH}
-          setValue={setmaH}
-          label={"Device Capacity:"}
-          unit={"maH"}
-        />
-        <InputWithText
-          value={RPM}
-          setValue={setRPM}
-          label={"RPM the user can generate:"}
-          unit={"RPM"}
-        />
-        <InputWithText
-          value={watts}
-          setValue={setWatts}
-          label={"Watts needed to change the digital device:"}
-          unit={"Watts"}
-          editable={false}
-        />
-        <InputWithText
-          value={elecRPM}
-          setValue={setElecRPM}
-          label={"Electricity generated in relation to rpm:"}
-          unit={"Watts per minute"}
-          editable={false}
-        />
-        <InputWithText
-          value={wattsToday}
-          setValue={setWattsToday}
-          label={`Watts generated ${selectedCalculationLabel}:`}
-          unit={"Watts"}
-        />
-        <InputWithText
-          value={saved}
-          setValue={setSaved}
-          label={`₱ Saved ${selectedCalculationLabel}:`}
-          unit={"pesos"}
-          editable={false}
-        />
-        <TouchableOpacity
-          style={styles.saveButton}
-          onPress={() => setModalVisible(true)}
-        >
-          <Text style={styles.buttonText}>Save</Text>
-        </TouchableOpacity>
-      </View>
-      <CustomModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-      >
-        <Text style={styles.modalHeaderText}>Store these values?</Text>
-        <Text style={styles.modalContentText}>Device Capacity: {maH}</Text>
-        <Text style={styles.modalContentText}>RPM: {RPM}</Text>
-        <Text style={styles.modalContentText}>Watts: {watts}</Text>
-        <Text style={styles.modalContentText}>Watts per minute: {elecRPM}</Text>
-        <Text style={styles.modalContentText}>
-          Watts generated: {wattsToday}
-        </Text>
-        <Text style={styles.modalContentText}>₱ Saved: {saved}</Text>
-        <Text style={styles.modalContentText}>
-          From: {formatOutputDate(selectedDay.start)}
-        </Text>
-        <Text style={styles.modalContentText}>
-          To: {formatOutputDate(selectedDay.end)}
-        </Text>
-        <View style={styles.modalButtonContainer}>
+              [selectedDay.end]: {
+                selected: true,
+                disableTouchEvent: true,
+                selectedDotColor: "orange",
+              },
+              ...Object.fromEntries(
+                getDatesBetween(
+                  new Date(selectedDay.start),
+                  new Date(selectedDay.end)
+                ).map((date) => [
+                  date,
+                  {
+                    selected: true,
+                    disableTouchEvent: true,
+                    selectedDotColor: "orange",
+                  },
+                ])
+              ),
+            }}
+          />
+        </View>
+        <View style={styles.selectCalculationType}>
           <TouchableOpacity
-            style={styles.modalCloseButton}
-            onPress={() => setModalVisible(false)}
+            style={[
+              styles.button,
+              selected === "Day" ? styles.buttonActive : styles.buttonInactive,
+            ]}
+            onPress={() => changeOnSelectedDays("Day")}
           >
-            <Text style={styles.modalTextButton}>Close</Text>
+            <Text style={styles.buttonText}>Day</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity style={styles.modalSaveButton} onPress={saveResult}>
-            <Text style={styles.modalTextButton}>Save</Text>
+          <TouchableOpacity
+            style={[
+              styles.button,
+              selected == "Week" ? styles.buttonActive : styles.buttonInactive,
+            ]}
+            onPress={() => changeOnSelectedDays("Week")}
+          >
+            <Text style={styles.buttonText}>Week</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.button,
+              selected == "Month" ? styles.buttonActive : styles.buttonInactive,
+            ]}
+            onPress={() => changeOnSelectedDays("Month")}
+          >
+            <Text style={styles.buttonText}>Month</Text>
           </TouchableOpacity>
         </View>
-      </CustomModal>
+        <View style={{ marginTop: 10 }}>
+          <InputWithText
+            value={maH}
+            setValue={setmaH}
+            label={"Device Capacity:"}
+            unit={"maH"}
+          />
+          <InputWithText
+            value={RPM}
+            setValue={setRPM}
+            label={"RPM the user can generate:"}
+            unit={"RPM"}
+          />
+          <InputWithText
+            value={watts}
+            setValue={setWatts}
+            label={"Watts needed to change the digital device:"}
+            unit={"Watts"}
+            editable={false}
+          />
+          <InputWithText
+            value={elecRPM}
+            setValue={setElecRPM}
+            label={"Electricity generated in relation to rpm:"}
+            unit={"Watts per minute"}
+            editable={false}
+          />
+          <InputWithText
+            value={wattsToday}
+            setValue={setWattsToday}
+            label={`Watts generated ${selectedCalculationLabel}:`}
+            unit={"Watts"}
+          />
+          <InputWithText
+            value={saved}
+            setValue={setSaved}
+            label={`₱ Saved ${selectedCalculationLabel}:`}
+            unit={"pesos"}
+            editable={false}
+          />
+          <TouchableOpacity
+            style={styles.saveButton}
+            onPress={() => setModalVisible(true)}
+          >
+            <Text style={styles.buttonText}>Save</Text>
+          </TouchableOpacity>
+        </View>
+        <CustomModal
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+        >
+          <Text style={styles.modalHeaderText}>Store these values?</Text>
+          <Text style={styles.modalContentText}>Device Capacity: {maH}</Text>
+          <Text style={styles.modalContentText}>RPM: {RPM}</Text>
+          <Text style={styles.modalContentText}>Watts: {watts}</Text>
+          <Text style={styles.modalContentText}>
+            Watts per minute: {elecRPM}
+          </Text>
+          <Text style={styles.modalContentText}>
+            Watts generated: {wattsToday}
+          </Text>
+          <Text style={styles.modalContentText}>₱ Saved: {saved}</Text>
+          <Text style={styles.modalContentText}>
+            From: {formatOutputDate(selectedDay.start)}
+          </Text>
+          <Text style={styles.modalContentText}>
+            To: {formatOutputDate(selectedDay.end)}
+          </Text>
+          <View style={styles.modalButtonContainer}>
+            <TouchableOpacity
+              style={styles.modalCloseButton}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={styles.modalTextButton}>Close</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.modalSaveButton}
+              onPress={saveResult}
+            >
+              <Text style={styles.modalTextButton}>Save</Text>
+            </TouchableOpacity>
+          </View>
+        </CustomModal>
+      </View>
     </ScrollView>
   );
 };

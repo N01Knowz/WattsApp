@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "black",
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 15,
   },
   lowerText: {
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 15,
   },
 });
 

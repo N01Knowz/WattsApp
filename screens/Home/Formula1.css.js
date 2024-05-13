@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     justifyContent: "center",
     alignment: "center",
-    paddingLeft: 33,
-    paddingRight: 33,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   inputContainer: {
     flexDirection: "row",
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#1C2938",
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 3,
     backgroundColor: "#EEEEEE",
   },
   //for css containers
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: "#7E2553",
-    borderRadius: 10,
+    borderRadius: 3,
     padding: 10,
     paddingHorizontal: 118, // Adjust as needed
   },
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 2,
-    width: "95%",
-    borderRadius: 8,
+    width: "100%",
+    borderRadius: 3,
     backgroundColor: "#1C2938",
   },
   saveButton: {
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 2,
-    width: "95%",
-    borderRadius: 8,
+    width: "100%",
+    borderRadius: 3,
     backgroundColor: "#186F65",
   },
   buttonText: {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 2,
     width: "50%",
-    borderRadius: 7,
+    borderRadius: 3,
     backgroundColor: "#7E2553",
   },
   modalTextButton: {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 2,
     width: "50%",
-    borderRadius: 7,
+    borderRadius: 3,
     backgroundColor: "#186F65",
   },
 });

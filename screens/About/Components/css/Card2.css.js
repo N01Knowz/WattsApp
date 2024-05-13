@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   //for css containers
   card: {
-    width: "95%",
+    width: "100%",
     height: 170,
     padding: 10,
     marginBottom: 20,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "400",
-    fontSize: 18,
+    fontSize: 15,
   },
   formulaContainer: {
     paddingTop: 10,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   fractionText: {
     marginLeft: 5, // Add some spacing between text elements
-    fontSize: 17,
+    fontSize: 15,
   },
 });
 

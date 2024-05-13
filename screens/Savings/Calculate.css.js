@@ -1,13 +1,22 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  calendarContainer: {
+    borderRadius: 3,
+    overflow: "hidden", // This ensures the border radius is applied properly
+    marginBottom: 10,
+  },
+  innerContainer: {
+    backgroundColor: "#F4F6F6",
+    margin: "5%",
+  },
   saveButton: {
     padding: 13,
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 2,
-    width: "95%",
-    borderRadius: 8,
+    width: "100%",
+    borderRadius: 3,
     backgroundColor: "#186F65",
   },
   modalHeaderText: {
@@ -29,7 +38,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 2,
     width: "50%",
-    borderRadius: 7,
+    borderRadius: 3,
     backgroundColor: "#7E2553",
   },
   modalTextButton: {
@@ -44,7 +53,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 2,
     width: "50%",
-    borderRadius: 7,
+    borderRadius: 3,
     backgroundColor: "#186F65",
   },
   selectCalculationType: {
@@ -53,19 +62,23 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    marginHorizontal: 5, // Add some margin for spacing between buttons
+    marginHorizontal: 5,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 5, // Optional: Add border radius for rounded corners
+    borderRadius: 5,
     paddingVertical: 8,
   },
   buttonInactive: {
-    backgroundColor: "lightgray", // Optional: Add background color for better visibility
+    backgroundColor: "lightgray",
   },
   buttonActive: {
-    backgroundColor: "lightblue", // Optional: Add background color for better visibility
+    color: "#fff", // Set text color to white for active button
+    backgroundColor: "#00224D",
   },
+
   buttonText: {
+    textAlign : "center",
+    color: "#fff",
     fontSize: 16, // Optional: Customize font size
     fontWeight: "bold", // Optional: Customize font weight
   },

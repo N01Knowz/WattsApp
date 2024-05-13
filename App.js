@@ -77,41 +77,41 @@ export default function App() {
       );
     });
 
-    // Define a function to show the table description
-    const showTableDescription = (tableName) => {
-      db.transaction(
-        (tx) => {
-          tx.executeSql(
-            `SELECT sql FROM sqlite_master WHERE type='table' AND name=?;`,
-            [tableName],
-            (_, result) => {
-              if (result.rows.length > 0) {
-                const createStatement = result.rows.item(0).sql;
-                console.log(`Description of table '${tableName}':`);
-                console.log(createStatement);
-              } else {
-                console.log(`Table '${tableName}' not found.`);
-              }
-            },
-            (_, error) => {
-              console.error(
-                `Error retrieving description of table '${tableName}':`,
-                error
-              );
-            }
-          );
-        },
-        (error) => {
-          console.error("Transaction error:", error);
-        }
-      );
-    };
+    // // Define a function to show the table description
+    // const showTableDescription = (tableName) => {
+    //   db.transaction(
+    //     (tx) => {
+    //       tx.executeSql(
+    //         `SELECT sql FROM sqlite_master WHERE type='table' AND name=?;`,
+    //         [tableName],
+    //         (_, result) => {
+    //           if (result.rows.length > 0) {
+    //             const createStatement = result.rows.item(0).sql;
+    //             console.log(`Description of table '${tableName}':`);
+    //             console.log(createStatement);
+    //           } else {
+    //             console.log(`Table '${tableName}' not found.`);
+    //           }
+    //         },
+    //         (_, error) => {
+    //           console.error(
+    //             `Error retrieving description of table '${tableName}':`,
+    //             error
+    //           );
+    //         }
+    //       );
+    //     },
+    //     (error) => {
+    //       console.error("Transaction error:", error);
+    //     }
+    //   );
+    // };
 
-    // Call the function to show the description of each table
-    showTableDescription("formula1");
-    showTableDescription("formula2");
-    showTableDescription("formula3");
-    showTableDescription("savings");
+    // // Call the function to show the description of each table
+    // showTableDescription("formula1");
+    // showTableDescription("formula2");
+    // showTableDescription("formula3");
+    // showTableDescription("savings");
   }, []);
 
   return <MainComponent />;

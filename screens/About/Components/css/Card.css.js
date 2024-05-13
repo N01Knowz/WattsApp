@@ -6,21 +6,20 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 170,
     padding: 15,
-    marginBottom: 10,
-    marginTop: 10,
+    marginBottom: 20,
+    marginTop: 20,
     backgroundColor: "#F4F6F6",
-    borderRadius: 5,
   },
   formulaContainer: {
-    paddingTop: 15,
-    // flexDirection: "row",
-    alignItems: "left", // Align items vertically within the container
-    justifyContent: "left",
-    paddingHorizontal: 10,
+    paddingTop: 13,
+    flexDirection: "row",
+    alignItems: "center", // Align items vertically within the container
+    justifyContent: "center",
+    paddingHorizontal: 50,
   },
   text: {
-    fontWeight: "500",
-    fontSize: 18,
+    fontWeight: "400",
+    fontSize: 25,
   },
   fractionText: {
     fontSize: 30,
@@ -30,7 +29,6 @@ const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: "#7E2553",
     borderRadius: 3,
-    width: "100%",
     padding: 10,
     paddingHorizontal: 85, // Adjust as needed
   },

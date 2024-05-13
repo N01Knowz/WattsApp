@@ -24,7 +24,15 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginBottom: 5,
   },
+  boldh3: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 2,
+    marginTop: 2,
+  },
+
   text1: {
+    textAlign: "justify",
     fontSize: 15,
     fontWeight: "400",
     marginBottom: 10,
@@ -34,6 +42,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "400",
     marginBottom: 10,
+  },
+  viewLine: {
+    borderBottomColor: "black",
+
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    marginBottom: 20,
   },
   imageContainer: {
     padding: 2,

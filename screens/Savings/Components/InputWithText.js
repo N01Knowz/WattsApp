@@ -4,7 +4,7 @@ import styles from "./InputWithText.css";
 
 const InputWithText = ({ value, setValue, unit, label, editable = true }) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>{label}</Text>
       <TextInput
         style={[styles.inputs, editable ? styles.editable : styles.notEditable]}
@@ -12,8 +12,8 @@ const InputWithText = ({ value, setValue, unit, label, editable = true }) => {
         value={value}
         keyboardType="numeric"
         editable={editable}
+        placeholder={unit}
       />
-      <Text>{unit}</Text>
     </View>
   );
 };

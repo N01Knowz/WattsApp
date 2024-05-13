@@ -12,8 +12,8 @@ import styles from "./About.css";
 import DividedText from "./Components/DividedText";
 import CustomCard from "./Components/CustomCard";
 import ShowDataCard from "./Components/ShowDataCard";
-import CustomCard2 from "../Home/Components/CustomCard2";
-
+import CustomCard2 from "./Components/CustomCard2";
+import CustomCard3 from "./Components/CustomCard3";
 const About = () => {
   const data = [
     { id: "1", title: "Item 1", image: require("../../assets/noel.jpg") },
@@ -192,7 +192,7 @@ const About = () => {
           The formulas that were used in the ChargeCycle Application will be
           explained and listed below:
         </Text>
-
+        <Text style={styles.boldh3}>{` Formula A:`}</Text>
         <View style={styles.cardContainer}>
           <CustomCard
             title={"Watt-hour"}
@@ -207,6 +207,34 @@ const About = () => {
             ftext={<DividedText upperText={"W"} lowerText={"hr"} />}
           />
         </View>
+        <Text style={styles.text1}>
+          Where:
+          {"\n"}
+          {"\n"}
+          {"\n"}maH = Milliampere-Hour
+          {"\n"}V = Voltage
+          {"\n"}Wh = Watts Per Hour
+          {"\n"}W = Watt
+        </Text>
+        <View style={styles.cardContainer}>
+          <CustomCard3
+            title={"Watt hour example:"}
+            t1={""}
+            ftext={
+              <DividedText upperText={"3000 maH x 12 V  "} lowerText={"1000"} />
+            }
+            f2text={" = 360 Wh"}
+            f3text={""}
+            f4text={<DividedText upperText={"360 Wh"} lowerText={"1 hr"} />}
+            f5text={" = 360 W"}
+          />
+        </View>
+        <Text style={styles.text1}>
+          The device needs 36W to be fully charged. 12V is the machine constant
+          3000matt can change depending on the users output.
+        </Text>
+        <View style={styles.viewLine} />
+        <Text style={styles.boldh3}>{` Formula B:`}</Text>
         <View style={styles.cardContainer}>
           <CustomCard
             title={"Torque"}
@@ -221,14 +249,68 @@ const About = () => {
             ftext={<DividedText upperText={"T x RPM x 2π"} lowerText={"60"} />}
           />
         </View>
+        <Text style={styles.text1}>
+          Where:{"\n"} {"\n"}PxW = power in watts, units is {"\n"}Wmin = watt
+          per minute {"\n"}T = torque; wunits is {"\n"}Nm = Newton meter {"\n"}
+          RPM = revolutions per minute {"\n"}Hp = horsepower {"\n"}5252,60,2π =
+          formula constants
+        </Text>
+        <View style={styles.cardContainer}>
+          <CustomCard3
+            title={"Torque Example:"}
+            t1={""}
+            ftext={
+              <DividedText upperText={"1/5 Hp x 5252"} lowerText={"70 RPM"} />
+            }
+            f2text={"= 15 Nm"}
+          />
+        </View>
+        <View style={styles.cardContainer}>
+          <CustomCard3
+            title={"Power Example:"}
+            t1={""}
+            ftext={
+              <DividedText
+                upperText={"15 NM x 70 RPM x 2π "}
+                lowerText={"60"}
+              />
+            }
+            f2text={"= 35π ~ 110 W min"}
+          />
+        </View>
+        <Text style={styles.text1}>
+          Running the ChargeCycle Station at 70RPM will generate 110 W per
+          minute. In 3-4 minutes the ChargeCycle Station will generate enough
+          electricity to fully charge the digital device (generate electricity ≠
+          time left intul full charge.) 1/5 hp is the constant horsepower of a
+          human being using a bicycle 70 RPM can charge depending on the users
+          input.
+        </Text>
+        <View style={styles.viewLine} />
+        <Text style={styles.boldh3}>{` Formula C:`}</Text>
         <View style={styles.cardContainer}>
           <CustomCard2
             title={"₱ Saved"}
-            t1={"₱Saved ="}
+            t1={"₱ Saved ="}
             ftext={<DividedText upperText={"W"} lowerText={1000} />}
             f2text={"x hrs x days x ₱8.81"}
           />
         </View>
+
+        <Text style={styles.text1}>
+          Where:{"\n"} {"\n"}After using the ChargeCycle Station for 2 hours in
+          2 days, the user saved up ₱12.67 360W can change depending on the
+          input on A
+        </Text>
+        <View style={styles.cardContainer}>
+          <CustomCard3
+            title={"₱ Saved Example:"}
+            t1={""}
+            ftext={<DividedText upperText={"300 W"} lowerText={1000} />}
+            f2text={"x 2hrs x 2days x ₱8.81 = ₱12.67"}
+          />
+        </View>
+        <View style={styles.viewLine} />
       </View>
     </ScrollView>
   );

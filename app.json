@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "WattsApp",
+    "name": "ChargeCycle",
     "slug": "WattsApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/ChargeCycle.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/ChargeCycle.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fef8e8"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -17,13 +17,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/ChargeCycle.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.WattsApp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/ChargeCycle.png"
     },
     "extra": {
       "eas": {
